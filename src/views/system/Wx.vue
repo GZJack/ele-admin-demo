@@ -1,6 +1,6 @@
 <template>
     <!-- 微信页面 -->
-    <page-tpl>
+    <page-tpl :breadcrumbs="[{label:'系统管理'},{label:'公众号管理'}]">
         <h1>微信管理</h1>
     </page-tpl>
 </template>

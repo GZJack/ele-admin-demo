@@ -1,14 +1,16 @@
 module.exports = [{
     label: '系统管理',
+    icoClass:'el-icon-setting',
     children: [{
       label: '网站管理',
-      url:'#/system/wx'
+      url:'/about'
     },{
       label: '公众号管理',
-      url:'/about'
+      url:'/system/wx'
     }]
   }, {
     label: '一级 2',
+    icoClass:'el-icon-setting',
     children: [{
       label: '二级 2-1',
       children: [{
@@ -22,6 +24,7 @@ module.exports = [{
     }]
   }, {
     label: '一级 3',
+    icoClass:'el-icon-setting',
     children: [{
       label: '二级 3-1',
       children: [{

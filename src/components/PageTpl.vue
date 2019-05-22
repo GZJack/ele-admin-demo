@@ -2,12 +2,22 @@
     <div class="main-page">
         <!-- 面包屑 -->
         <div class="main-breadcrumb">
+            <!-- 整个面包屑  separator = 分隔符 -->
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><a href="/">首页</a></el-breadcrumb-item>
-                <el-breadcrumb-item><a href="/">系统管理</a></el-breadcrumb-item>
-                <el-breadcrumb-item>公共号管理</el-breadcrumb-item>
-                <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+                <!-- 首页是固定的 -->
+                <el-breadcrumb-item>
+                    <a :href="indexUrl">首页</a>
+                </el-breadcrumb-item>
+                <!-- 第一级菜单 -->
+                <el-breadcrumb-item v-for="(breadcrumb,index) in breadcrumbs" :key="index">
+                    <!-- 需要带链接的 -->
+                    <a v-if="breadcrumb.url" :href="breadcrumb.url">{{breadcrumb.label}}</a>
+                    <!-- 不需要带链接的 -->
+                    <a v-else>{{breadcrumb.label}}</a>
+                </el-breadcrumb-item>
             </el-breadcrumb>
+
+            <!-- 右侧的刷新按钮,可以刷新本页的后台请求 -->
             <div>
                 <span class="page-refresh"><i class="el-icon-refresh" @click.stop="reload"></i></span>
             </div>
@@ -18,6 +28,17 @@
 <script>
     export default {
         name:'page-tpl',
+        props: {
+            // 首页的链接
+            indexUrl:{
+                type:String,
+                default:'/'
+            },
+            breadcrumbs: {
+                type: Array,
+                default: []
+            },
+        },
         methods: {
             reload() {
                 console.log('重新加载');

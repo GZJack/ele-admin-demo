@@ -11,7 +11,7 @@
     <aside class="admin-aside aside-animation"  v-bind:style="{ left: isShowAside ? '0px' : '-'+asideWidth}">
       <!-- 使用 element ui tree  menus 可以通过后台api数据请求获得-->
       <!-- <el-tree :data="menus" :props="defaultProps" @node-click="handleNodeClick"></el-tree> -->
-      <aside-menus></aside-menus>
+      <aside-menus :menus="menus"></aside-menus>
     </aside>
     <!-- 右侧部分 -->
     <main class="admin-main aside-animation" v-bind:style="{ left: isShowAside ? asideWidth : '0px'}">
@@ -89,7 +89,7 @@ body,html{
   padding: 0;
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #000000;
@@ -131,6 +131,7 @@ body,html{
   left: 0;
   top: @header-height;
   bottom: 0;
+  background-color: #EEEEEE;
 }
 .admin-main{
   position: absolute;
